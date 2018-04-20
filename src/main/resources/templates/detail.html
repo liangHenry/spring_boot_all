@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head th:include="layout :: htmlhead" th:with="title='秒杀详情'">
+</head>
+<body layout:fragment="content">
+
+
+<div class="container">
+    <div class="panel panel-default text-center">
+        <div class="pannel-heading">
+            <h1 th:text="${seckill.name}"></h1>
+        </div>
+
+        <div class="panel-body">
+            <h2 class="text-danger">
+                <!-- <%&#45;&#45;显示time图标&#45;&#45;%>-->
+                <span class="glyphicon glyphicon-time"></span>
+                <!--<%&#45;&#45;展示倒计时&#45;&#45;%>-->
+                <span class="glyphicon" id="seckill-box"></span>
+            </h2>
+        </div>
+    </div>
+</div>
+
+<!--<%&#45;&#45;登录弹出层 输入电话&#45;&#45;%>-->
+<div id="killPhoneModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title text-center">
+                    <span class="glyphicon glyphicon-phone"> </span>秒杀电话:
+                </h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <input type="text" name="killPhone" id="killPhoneKey" placeholder="填写手机号^o^"
+                               class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!--<%&#45;&#45;验证信息&#45;&#45;%>-->
+                <span id="killPhoneMessage" class="glyphicon"> </span>
+                <button type="button" id="killPhoneBtn" class="btn btn-success">
+                    <span class="glyphicon glyphicon-phone"></span>
+                    Submit
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div th:include="layout/footer :: footer"></div>
+</body>
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--<%&#45;&#45;jQuery Cookie操作插件&#45;&#45;%>-->
+<script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery.countdown/2.1.0/jquery.countdown.min.js"></script>
+<script type="text/javascript" th:src="@{/js/seckill.js}"></script>
+<script th:inline="javascript">
+    $(function () {
+        //使用el表达式传入参数
+        seckill.detail.init({
+            seckillId: [[${seckill.seckillId}]],
+            startTime: [[${seckill.startTime.time}]],
+            endTime: [[${seckill.endTime.time}]]
+        });
+    });
+</script>
+</html>

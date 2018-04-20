@@ -95,8 +95,8 @@
     </update>
 
     <insert id="insertSuccessKilled">
-        INSERT IGNORE INTO success_killed (seckill_id, user_phone)
-        VALUES (#{seckillId}, #{userPhone})
+        INSERT IGNORE INTO success_killed (seckill_id, user_phone,state)
+        VALUES (#{seckillId}, #{userPhone},0)
     </insert>
 
 

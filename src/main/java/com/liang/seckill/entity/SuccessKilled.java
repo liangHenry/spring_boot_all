@@ -32,4 +32,9 @@ public class SuccessKilled extends SuccessKilledKey {
     public void setSeckill(Seckill seckill) {
         this.seckill = seckill;
     }
+
+    @Override
+    public String toString() {
+        return "SuccessKilled{" + "state=" + state + ", createTime=" + createTime + ", seckill=" + seckill + '}';
+    }
 }

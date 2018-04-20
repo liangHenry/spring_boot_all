@@ -1,6 +1,7 @@
 package com.liang.seckill.dto;
 
 import com.liang.seckill.entity.SuccessKilled;
+import com.liang.seckill.enums.SeckillStateEnum;
 
 /**
  * Description: 封装秒杀执行后的结构
@@ -22,16 +23,16 @@ public class SeckillExecution {
     public SeckillExecution() {
     }
 
-    public SeckillExecution(long seckillId, int state, String stateInfo) {
+    public SeckillExecution(long seckillId, SeckillStateEnum stateEnum) {
         this.seckillId = seckillId;
-        this.state = state;
-        this.stateInfo = stateInfo;
+        this.state = stateEnum.getState();
+        this.stateInfo = stateEnum.getStateInfo();
     }
 
-    public SeckillExecution(long seckillId, int state, String stateInfo, SuccessKilled successKilled) {
+    public SeckillExecution(long seckillId, SeckillStateEnum stateEnum, SuccessKilled successKilled) {
         this.seckillId = seckillId;
-        this.state = state;
-        this.stateInfo = stateInfo;
+        this.state = stateEnum.getState();
+        this.stateInfo = stateEnum.getStateInfo();
         this.successKilled = successKilled;
     }
 
