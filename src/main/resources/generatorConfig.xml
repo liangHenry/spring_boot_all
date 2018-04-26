@@ -23,9 +23,9 @@
         <!-- JDBC连接 -->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://140.143.163.55:3306/seckill"
+                connectionURL="jdbc:mysql://127.0.0.1:3306/seckill"
                 userId="root"
-                password="msqpass">
+                password="root">
         </jdbcConnection>
 
         <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
